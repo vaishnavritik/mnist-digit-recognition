@@ -25,11 +25,11 @@ The application lets a user draw a digit (0–9) on a browser canvas. It preproc
 
 ### Drawing interface and model input preprocessing
 
-![MNIST drawing interface with a handwritten digit and processed 28x28 preview](screenshots/mnist-drawing-interface.jpg)
+![MNIST drawing interface with a handwritten digit and processed 28x28 preview](screenshots/mnist-drawing-interface.png)
 
 ### Prediction result
 
-![MNIST model prediction showing digit 3 and class probability chart](screenshots/mnist-prediction-result.jpg)
+![MNIST model prediction showing digit 3 and class probability chart](screenshots/mnist-prediction-result.png)
 
 > The displayed 100.00% value is the model's maximum softmax output for this example; it should not be interpreted as a calibrated measure of real-world certainty.
 
@@ -99,8 +99,8 @@ flowchart LR
 ├── .dockerignore
 ├── .gitignore
 ├── screenshots/
-│   ├── mnist-drawing-interface.jpg
-│   └── mnist-prediction-result.jpg
+│   ├── mnist-drawing-interface.png
+│   └── mnist-prediction-result.png
 └── .github/
     └── workflows/
         └── docker-build.yml
