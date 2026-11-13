@@ -2,6 +2,9 @@
 
 A containerized handwritten-digit recognition application built with TensorFlow/Keras and Streamlit, packaged with Docker, published to Docker Hub through GitHub Actions, and deployed on an AWS EC2 Ubuntu instance.
 
+[![Docker CI/CD](https://github.com/vaishnavritik/mnist-digit-recognition/actions/workflows/docker-build.yml/badge.svg)](https://github.com/vaishnavritik/mnist-digit-recognition/actions/workflows/docker-build.yml)
+[![Docker Hub](https://img.shields.io/docker/v/vasrivastava/mnist-digit-recognition?label=Docker%20Hub)](https://hub.docker.com/r/vasrivastava/mnist-digit-recognition)
+
 ## Project overview
 
 The application lets a user draw a digit (0–9) on a browser canvas. It preprocesses the drawing into the MNIST model's 28×28 grayscale input format and returns the predicted digit, prediction probability, and class probabilities.
@@ -20,31 +23,30 @@ The application lets a user draw a digit (0–9) on a browser canvas. It preproc
 
 ## Architecture
 
-```text
-User browser
-    |
-    v
-Streamlit application (port 8501)
-    |
-    v
-Image preprocessing (grayscale, crop, resize, center, normalize)
-    |
-    v
-TensorFlow / Keras MNIST model
-    |
-    v
-Predicted digit + probability results
+### Application inference flow
 
-Source control and image delivery:
-Git push -> GitHub Actions -> Docker Buildx (linux/amd64) -> Docker Hub
-                                                        |
-                                                        v
-                                              AWS EC2 deployment
-                                              (manual image pull
-                                               and container restart)
+```mermaid
+flowchart TD
+    A[User browser] --> B[Streamlit drawing canvas]
+    B --> C[Image preprocessing]
+    C --> D[28 x 28 grayscale image]
+    D --> E[TensorFlow / Keras model]
+    E --> F[Predicted digit and probabilities]
 ```
 
-> Note: The current GitHub Actions workflow automates Docker image building and publishing. The EC2 image pull and container replacement were performed manually; automatic EC2 deployment is a planned improvement, not part of the current pipeline.
+### Build and deployment flow
+
+```mermaid
+flowchart LR
+    A[Developer pushes to main] --> B[GitHub Actions]
+    B --> C[Docker Buildx builds linux/amd64]
+    C --> D[Docker Hub]
+    D -. Manual pull and restart .-> E[AWS EC2 Ubuntu]
+    E --> F[MNIST container on port 8501]
+    F --> G[User browser]
+```
+
+> Deployment scope: GitHub Actions automates Docker image building and publishing. The EC2 image pull and container replacement were performed manually; automatic EC2 deployment is a planned improvement, not part of the current pipeline.
 
 ## Technology stack
 
