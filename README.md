@@ -33,6 +33,12 @@ The application lets a user draw a digit (0–9) on a browser canvas. It preproc
 
 > The displayed 100.00% value is the model's maximum softmax output for this example; it should not be interpreted as a calibrated measure of real-world certainty.
 
+
+### GitHub Actions CI/CD workflow
+
+![GitHub Actions workflow showing successful Docker builds](screenshots/github-actions-workflow.png)
+
+
 ## Architecture
 
 ### Application inference flow
