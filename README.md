@@ -21,6 +21,18 @@ The application lets a user draw a digit (0–9) on a browser canvas. It preproc
 - Deployed the container on Ubuntu 26.04 LTS running on AWS EC2.
 - Configured GitHub Actions to build and publish Docker images when code is pushed to `main`.
 
+## Screenshots
+
+### Drawing interface and model input preprocessing
+
+![MNIST drawing interface with a handwritten digit and processed 28x28 preview](screenshots/mnist-drawing-interface.jpg)
+
+### Prediction result
+
+![MNIST model prediction showing digit 3 and class probability chart](screenshots/mnist-prediction-result.jpg)
+
+> The displayed 100.00% value is the model's maximum softmax output for this example; it should not be interpreted as a calibrated measure of real-world certainty.
+
 ## Architecture
 
 ### Application inference flow
@@ -86,6 +98,9 @@ flowchart LR
 ├── Dockerfile
 ├── .dockerignore
 ├── .gitignore
+├── screenshots/
+│   ├── mnist-drawing-interface.jpg
+│   └── mnist-prediction-result.jpg
 └── .github/
     └── workflows/
         └── docker-build.yml
