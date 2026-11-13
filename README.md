@@ -57,6 +57,22 @@ Git push -> GitHub Actions -> Docker Buildx (linux/amd64) -> Docker Hub
 - **Image registry:** Docker Hub
 - **Cloud deployment:** AWS EC2 (Ubuntu, Linux AMD64)
 
+## Resume highlights
+
+**MNIST Handwritten Digit Recognition – Cloud Deployment & CI/CD**
+
+**Technologies:** Python, TensorFlow, Keras, Streamlit, Docker, Docker Hub, GitHub Actions, AWS EC2, Linux.
+
+- Developed and containerized a handwritten digit recognition application using TensorFlow/Keras and Streamlit, achieving approximately 97.79% test accuracy.
+- Built and published Docker images for Linux AMD64 to Docker Hub.
+- Deployed the containerized ML application on AWS EC2 running Ubuntu Linux and configured application access through Docker port mapping.
+- Implemented a GitHub Actions workflow to automatically build and publish versioned Docker images to Docker Hub on pushes to the `main` branch.
+- Troubleshot ARM64 vs AMD64 image compatibility and deployed the AMD64 image successfully on AWS EC2.
+
+**GitHub:** [vaishnavritik/mnist-digit-recognition](https://github.com/vaishnavritik/mnist-digit-recognition)
+
+> Accuracy is the observed test-set result from the training notebook. CI currently builds and publishes images; EC2 rollout is manual.
+
 ## Repository structure
 
 ```text
